@@ -1,11 +1,11 @@
-import { app } from "./app";
+import { app } from "./app.js";
 import dotenv from 'dotenv'
-import { dbClient } from "./db/dbClient";
+import { dbClient } from "./db/dbClient.js";
 
 dotenv.config()
 
 dbClient().then(() => {
-    const port = process.env.MONGODB_URI || 4050
+    const port = process.env.PORT || 4050
     app.listen(port, () => {
         console.log(`The Server is running on ${port}`);
     })
